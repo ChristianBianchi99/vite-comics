@@ -12,7 +12,7 @@ export default {
 </script>
 <template lang="">
   <div>
-    <Header />
+    <Header class="try" />
     <Main />
     <Footer />
   </div>
