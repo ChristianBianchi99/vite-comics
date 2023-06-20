@@ -55,6 +55,14 @@ export default {
                 },
             ]
         }
+    },
+    methods:{
+        becomeActive(index){
+            for(let i=0; i<this.links.length; i++){
+                this.links[i].active= false
+            }
+            this.links[index].active= true;
+        }
     }
 }
 </script>
@@ -70,7 +78,7 @@ export default {
                 <div class="col">
                     <div class="list">
                         <ul>
-                            <li v-for="link in links" :key="index">
+                            <li v-for="(link, index) in links" :key="index" @click="becomeActive(index)">
                                 <a :href="link.link" :class="link.active===true ? 'active' : ''">{{link.label}}</a>
                             </li>
                         </ul>
