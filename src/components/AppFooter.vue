@@ -191,7 +191,9 @@ export default {
                                 </li>
                             </ul>
                         </div>
-                        <img src="/src/assets/dc-logo-bg.png" alt="Logo" class="bg-logo">
+                        <div class="bg-logo">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -253,7 +255,6 @@ export default {
     background-size: cover;
     padding: 30px 0;
     position: relative;
-    z-index: -2;
     .col{
         display: flex;
         flex-direction: column;
@@ -274,20 +275,26 @@ export default {
         a{
             font-size: 10px;
             color: gray;
+            &:hover{
+                color: lighten( gray, 30%);
+            }
         }
     }
     .bg-logo{
         position: absolute;
-        transform: scale(150%);
         top: 0px;
-        left: 57%;
-        z-index: -1;
+        left: 52%;
+        height: 100%;
+        width: 470px;
+        background-image: url('/src/assets/dc-logo-bg.png');
+        background-size: 100%;
+        background-position-y: 50%;
+        background-position-x: 20%;
     }
   }
   .bottom-bar{
     background-color: violet;
     height: 100px;
-
     .row{
         justify-content: space-between;
     }
