@@ -84,7 +84,7 @@ export default {
   @use '../style/generals.scss' as *;
   @use '../style/partials/_variables.scss' as *;
   header{
-    padding: 15px;
+    padding: 15px 0;
   }
   .row{
     justify-content: space-between;
@@ -107,7 +107,6 @@ export default {
         li{
             margin: 15px;
             a{
-                text-decoration: none;
                 color: black;
                 position: relative;
             }

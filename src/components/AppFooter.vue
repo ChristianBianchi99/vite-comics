@@ -2,7 +2,7 @@
 export default {
     data(){
         return{
-            links:[
+            TopBarLinks:[
                 {
                     icon: '/src/assets/buy-comics-digital-comics.png',
                     label: 'digital comics',
@@ -28,7 +28,129 @@ export default {
                     label: 'dc power visa',
                     link: '#',
                 },
-            ]
+            ],
+            MiddleBarLinks:[
+                {
+                    label: 'dc comics',
+                    links: [
+                        {
+                            label: 'Characters',
+                            link: '#'
+                        },
+                        {
+                            label: 'Comics',
+                            link: '#'
+                        },
+                        {
+                            label: 'Movies',
+                            link: '#'
+                        },
+                        {
+                            label: 'TV',
+                            link: '#'
+                        },
+                        {
+                            label: 'Games',
+                            link: '#'
+                        },
+                        {
+                            label: 'Videos',
+                            link: '#'
+                        },
+                        {
+                            label: 'News',
+                            link: '#'
+                        },
+                    ]
+                },
+                {
+                    label: 'shop',
+                    links: [
+                        {
+                            label: 'Shop DC',
+                            link: '#'
+                        },
+                        {
+                            label: 'Shop DC Collectibles',
+                            link: '#'
+                        },
+                    ]
+                },
+                {
+                    label: 'dc',
+                    links: [
+                        {
+                            label: 'Terms of Use',
+                            link: '#'
+                        },
+                        {
+                            label: 'Privacy policy (New)',
+                            link: '#'
+                        },
+                        {
+                            label: 'Ad Choices',
+                            link: '#'
+                        },
+                        {
+                            label: 'Advertising',
+                            link: '#'
+                        },
+                        {
+                            label: 'Jobs',
+                            link: '#'
+                        },
+                        {
+                            label: 'Subscriptions',
+                            link: '#'
+                        },
+                        {
+                            label: 'Talent Workshops',
+                            link: '#'
+                        },
+                        {
+                            label: 'CPSC Certificates',
+                            link: '#'
+                        },
+                        {
+                            label: 'Ratings',
+                            link: '#'
+                        },
+                        {
+                            label: 'Shop Help',
+                            link: '#'
+                        },
+                        {
+                            label: 'Contact Us',
+                            link: '#'
+                        },
+                    ]
+                },
+                {
+                    label: 'sites',
+                    links: [
+                        {
+                            label: 'DC',
+                            link: '#'
+                        },
+                        {
+                            label: 'MAD Magazine',
+                            link: '#'
+                        },
+                        {
+                            label: 'DC Kids',
+                            link: '#'
+                        },
+                        {
+                            label: 'DC Universe',
+                            link: '#'
+                        },
+                        {
+                            label: 'DC Power Visa',
+                            link: '#'
+                        },
+                    ]
+                },
+            ],
         }
     }
 }
@@ -41,7 +163,7 @@ export default {
                     <div class="col">
                         <div class="list">
                             <ul>
-                                <li v-for="link in links" :key="index">
+                                <li v-for="link in TopBarLinks" :key="index">
                                     <div class="icon">
                                         <img :src="link.icon" :alt="link.label">
                                     </div>
@@ -59,46 +181,17 @@ export default {
             <div class="container h100">
                 <div class="row h100">
                     <div class="col">
-                        <div class="dc-comics">
-                            <h3>DC COMICS</h3>
+                        <div v-for="section in MiddleBarLinks" :key="index" class="section">
+                            <h3>{{section.label}}</h3>
                             <ul>
-                                <li>
-                                    <a href="">
-                                        link
+                                <li v-for="link in section.links" :key="index">
+                                    <a :href="link.link">
+                                        {{link.label}}
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="shop">
-                            <h3>SHOP</h3>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        link
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="dc">
-                            <h3>DC</h3>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        link
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sites">
-                            <h3>SITES</h3>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        link
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <img src="/src/assets/dc-logo-bg.png" alt="Logo" class="bg-logo">
                     </div>
                 </div>
             </div>
@@ -124,12 +217,9 @@ export default {
 <style lang="scss" scoped>
   @use '../style/generals.scss' as *;
   @use '../style/partials/_variables.scss' as *;
-  footer{
-    background-color: pink
-  }
   .top-bar{
     background-color: $primary_color;
-    padding: 40px;
+    padding: 40px 0;
     .col, .list, .ul{
         width: 100%;
     }
@@ -147,7 +237,6 @@ export default {
                 display: flex;
                 flex-wrap: wrap;
                 align-content: center;
-                text-decoration: none;
                 color: white;
                 text-transform: uppercase;
                 margin-left: 10px;
@@ -160,8 +249,40 @@ export default {
     }
   }
   .middle-bar{
-    background-color: lightblue;
-    height: 250px;
+    background-image: url('/src/assets/footer-bg.jpg');
+    background-size: cover;
+    padding: 30px 0;
+    position: relative;
+    z-index: -2;
+    .col{
+        display: flex;
+        flex-direction: column;
+        max-height: 255px;
+        flex-wrap: wrap;
+    }
+    .section{
+        margin-right: 25px;
+    }
+    h3{
+        text-transform: uppercase;
+        font-size: 16px;
+        color: white;
+        margin-bottom: 10px;
+    }
+    ul{
+        margin-bottom: 15px;
+        a{
+            font-size: 10px;
+            color: gray;
+        }
+    }
+    .bg-logo{
+        position: absolute;
+        transform: scale(150%);
+        top: 0px;
+        left: 57%;
+        z-index: -1;
+    }
   }
   .bottom-bar{
     background-color: violet;
