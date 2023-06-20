@@ -7,7 +7,7 @@ export default {
     <header>
         <div class="container h100">
             <div class="row h100">
-                <div class="col h100">
+                <div class="col">
                     <div class="logo">
                         Logo
                     </div>
@@ -33,10 +33,5 @@ export default {
   }
   .row{
     justify-content: space-between;
-  }
-  .col{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
   }
 </style>
