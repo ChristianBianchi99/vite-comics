@@ -8,7 +8,9 @@ export default {
         <div class="container h100">
             <div class="row h100">
                 <div class="col">
-                --&gt Contents goes here &lt--
+                    <div class="contents">
+                        --&gt Content goes here &lt--
+                    </div>
                 </div>
             </div>
         </div>
@@ -17,7 +19,12 @@ export default {
 <style lang="scss" scoped>
   @use '../style/generals.scss' as *;
   main{
-    background-color: purple;
+    background-color: black;
     height: 120px;
+  }
+  .contents{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
   }
 </style>

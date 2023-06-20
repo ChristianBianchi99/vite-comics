@@ -1,6 +1,36 @@
 <script>
 export default {
-
+    data(){
+        return{
+            links:[
+                {
+                    icon: '/src/assets/buy-comics-digital-comics.png',
+                    label: 'digital comics',
+                    link: '#',
+                },
+                {
+                    icon: '/src/assets/buy-comics-merchandise.png',
+                    label: 'dc merchandise',
+                    link: '#',
+                },
+                {
+                    icon: '/src/assets/buy-comics-subscriptions.png',
+                    label: 'subscription',
+                    link: '#',
+                },
+                {
+                    icon: '/src/assets/buy-comics-shop-locator.png',
+                    label: 'comic shop locator',
+                    link: '#',
+                },
+                {
+                    icon: '/src/assets/buy-dc-power-visa.svg',
+                    label: 'dc power visa',
+                    link: '#',
+                },
+            ]
+        }
+    }
 }
 </script>
 <template lang="">
@@ -11,8 +41,13 @@ export default {
                     <div class="col">
                         <div class="list">
                             <ul>
-                                <li>
-                                    link
+                                <li v-for="link in links" :key="index">
+                                    <div class="icon">
+                                        <img :src="link.icon" :alt="link.label">
+                                    </div>
+                                    <a :href="link.link">
+                                        {{link.label}}
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -88,12 +123,41 @@ export default {
 </template>
 <style lang="scss" scoped>
   @use '../style/generals.scss' as *;
+  @use '../style/partials/_variables.scss' as *;
   footer{
     background-color: pink
   }
   .top-bar{
-    background-color: blue;
-    height: 145px;
+    background-color: $primary_color;
+    padding: 40px;
+    .col, .list, .ul{
+        width: 100%;
+    }
+    ul{
+        display: flex;
+        justify-content: space-around;
+        li{
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            .icon{
+                height: 45px;
+            }
+            a{
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                text-decoration: none;
+                color: white;
+                text-transform: uppercase;
+                margin-left: 10px;
+                font-size: 10px;
+            }
+        }
+        li:last-child .icon{
+            height: 30px;
+        }
+    }
   }
   .middle-bar{
     background-color: lightblue;

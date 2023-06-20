@@ -64,13 +64,13 @@ export default {
             <div class="row h100">
                 <div class="col">
                     <div class="logo">
-                        <img src="../assets/dc-logo.png" alt="Logo" class="h100">
+                        <img src="../assets/dc-logo.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col">
                     <div class="list">
                         <ul>
-                            <li v-for="link in links">
+                            <li v-for="link in links" :key="index">
                                 <a :href="link.link" :class="link.active===true ? 'active' : ''">{{link.label}}</a>
                             </li>
                         </ul>
