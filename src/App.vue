@@ -17,6 +17,6 @@ export default {
     <Footer />
   </div>
 </template>
-<style lang="" scoped>
-  
+<style lang="scss" scoped>
+  @use './style/generals.scss' as *;
 </style>
