@@ -151,6 +151,33 @@ export default {
                     ]
                 },
             ],
+            contacts:[
+                {
+                    label: 'Facebook',
+                    icon: '/src/assets/footer-facebook.png',
+                    link: '#'
+                },
+                {
+                    label: 'Twitter',
+                    icon: '/src/assets/footer-twitter.png',
+                    link: '#'
+                },
+                {
+                    label: 'You Tube',
+                    icon: '/src/assets/footer-youtube.png',
+                    link: '#'
+                },
+                {
+                    label: 'Pinterest',
+                    icon: '/src/assets/footer-pinterest.png',
+                    link: '#'
+                },
+                {
+                    label: 'Periscope',
+                    icon: '/src/assets/footer-periscope.png',
+                    link: '#'
+                }
+            ]
         }
     }
 }
@@ -203,12 +230,17 @@ export default {
                 <div class="row h100">
                     <div class="col">
                         <div class="sign-up">
-                            sign up
+                            <button>Sign-up now!</button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="follow-us">
                             follow us
+                        </div>
+                        <div class="contacts" v-for="contact in contacts" :key="index">
+                            <a :href="contact.link">
+                                <img :src="contact.icon" :alt="contact.label">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -293,10 +325,42 @@ export default {
     }
   }
   .bottom-bar{
-    background-color: violet;
-    height: 100px;
+    background-color: rgb(48, 48, 48);
+    padding: 20px 0;
     .row{
         justify-content: space-between;
+    }
+    .col{
+        display: flex;
+    }
+    .follow-us{
+        margin: 0 10px;
+        text-transform: uppercase;
+        color: $primary_color;
+        font-weight: bold;
+    }
+    .follow-us, .contacts{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+    .sign-up{
+        button{
+            appearance: none;
+            color: white;
+            text-transform: uppercase;
+            background-color: transparent;
+            border: 2px solid $primary_color;
+            padding: 10px;
+        }
+    }
+    .contacts{
+        a{
+            margin: 0 10px;
+            img{
+                height: 30px;
+            }
+        }
     }
   }
 </style>
