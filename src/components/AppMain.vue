@@ -1,6 +1,11 @@
 <script>
+import dcComics from '../data/dc-comics.js';
 export default {
-
+  data(){
+    return{
+      dcComics
+    }
+  }
 }
 </script>
 <template lang="">
